@@ -7,7 +7,7 @@ fi
 r=34
 c=0
 while [[ $r -ne 42 ]]; do
-	(( r = $( ./randomNumber.sh 2 ) )) 
+	(( r = $( ./../A/randomNumber.sh 2 ) )) 
 	((c=c+1))
 	echo $r >> $pa
 done
