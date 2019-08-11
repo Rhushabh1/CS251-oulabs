@@ -11,20 +11,9 @@ ord() {
   LC_CTYPE=C printf '%d' "'$1"
 }
 
-touch temp.txt
-echo $text > temp.txt
-# eval 'chr 65'
+dual=ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ
 
-awk -e 'BEGIN{
-		FS="";
-		RS=" ";
-	}
-	{
-		for (i=1;i<=NF;i++) 
-		{
-			c = eval ord $i
-			$i = eval chr $(( $c+1 ))
-			print $c;
-		}
-	}
-	END{}' temp.txt
+key=$1
+	
+newphrase=$(echo $text | tr "${dual:0:26}" "${dual:$key:26}")
+echo $newphrase
