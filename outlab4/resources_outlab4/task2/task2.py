@@ -1,20 +1,49 @@
 import numpy as np
+
+def add_patch(big, small, x,y):
+	br, bc = big.shape
+	sr,sc = small.shape
+	big[x:x+sr, y:y+sc] += small
+	# print(big)
+	return big
+
+
 def reconstruct_from_noisy_patches(input_dict, shape):
-    """
-    input_dict: 
-    key: 4-tuple: (topleft_row, topleft_col, bottomright_row, bottomright_col): location of the patch in the original image. topleft_row, topleft_col are inclusive but bottomright_row, bottomright_col are exclusive. i.e. if M is the reconstructed matrix. M[topleft_row:bottomright_row, topleft_col:bottomright_col] will give the patch.
+ 
+    M = np.zeros(shape)
+    black_count = np.zeros(shape)
+    white_count = np.zeros(shape)
+    mid_count = np.zeros(shape)
+    mid_total = np.zeros(shape)
 
-    value: 2d numpy array: the image patch.
 
-    shape: shape of the original matrix.
-    """
-    # Initialization: Initialise M, black_count, mid_count, white_count, mid_total
-
-    for topleft_row, topleft_col, bottomright_row, bottomright_col in input_dict: # no loop except this!
+    for topleft_row, topleft_col, bottomright_row, bottomright_col in input_dict:
         tlr, tlc, brr, brc = topleft_row, topleft_col, bottomright_row, bottomright_col
         patch = input_dict[(tlr, tlc, brr, brc)]
         
-        # change black_count, mid_count, white_count, mid_total here
-    # Finally change M here
-    return M # You have to return the reconstructed matrix (M).
+        bc = patch.copy()
+        bc[patch==0] =1
+        black_count = add_patch(black_count, bc, tlr, tlc)
+
+        wc = patch.copy()
+        wc[patch==255] =1
+        white_count = add_patch(white_count, wc, tlr, tlc)        
+
+        mc = patch.copy()
+        
+        mc[(patch!=0) & (patch!=255)] =1
+        mid_count = add_patch(mid_count, mc, tlr, tlc)
+
+        mid_total = add_patch(mid_total, patch, tlr, tlc)
+
+
+        
+
+        M[mid_count!=0] = mid_total[mid_count!=0]/mid_count[mid_count!=0]
+
+        M[(mid_count==0) & (black_count<=white_count)]= 255
+        M[(mid_count==0) & (black_count>white_count)] = 0
+
+    
+    return M 
 
