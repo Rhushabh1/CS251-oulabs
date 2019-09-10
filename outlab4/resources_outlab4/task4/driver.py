@@ -23,7 +23,7 @@ def driver():
     plt.show()
 
     plt.figure(2)
-    cleaned_sin = mean_filter(dirty_sin,3)
+    cleaned_sin = mean_filter(dirty_sin,1)
     plt.plot(x_arr,cleaned_sin)
     plt.savefig('cleaned_sin.png')
     plt.show()
