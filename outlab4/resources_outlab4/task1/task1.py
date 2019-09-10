@@ -10,7 +10,7 @@ def fn_plot1d(fn, x_min, x_max, filename):
     y_values = fn_vec(x_values)
 
     plt.plot(x_values,y_values)
-    # plt.savefig(filename)
+    plt.savefig(filename)
     plt.show()
 
 
@@ -23,7 +23,7 @@ def nth_derivative_plotter(fn, n, x_min, x_max, filename):
 
     plt.figure()
     plt.plot(x_values,y_values)
-    # plt.savefig(filename)
+    plt.savefig(filename)
     plt.show()
 
 
@@ -42,13 +42,10 @@ def fn_plot2d(fn, x_min, x_max, y_min, y_max, filename):
     ax = plt.axes(projection='3d')
     ax.plot_surface(X,Y,Z)
 
-    # plt.savefig(filename)
+    plt.savefig(filename)
     plt.show()
 
 
-# def h(t):
-#     # write your code here
-#     pass
 
 def b(x):
     # write your code here

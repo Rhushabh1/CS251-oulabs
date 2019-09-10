@@ -34,7 +34,7 @@ df = pd.read_csv(filename)
 
 instances = np.unique(df['instance'])
 plot_no = 1
-colors = 10*['b','g','r','c','m','y','k']
+colors = 10*['b','g','r','c','m','chocolate','purple']
 
 for instance in instances:
 	df_by_instance = df[df['instance'] == instance]
@@ -53,29 +53,25 @@ for instance in instances:
 				df_by_ep = df_by_algo[df_by_algo['epsilon'] == ep]
 
 				xs, ys = mean_line(df_by_ep)
-				plt.plot(xs, ys, label = algo+' with epsilon='+str(ep), color = colors[line_no])
+				# plt.loglog(xs,ys)
+				plt.loglog(xs, ys, label = algo+' with epsilon='+str(ep), color = colors[line_no])
 				line_no+=1
 
 
 		else:
 			xs, ys = mean_line(df_by_algo)
-			plt.plot(xs,ys, label = algo, color = colors[line_no])
+			# plt.loglog(xs,ys)
+			plt.loglog(xs,ys, label = algo, color = colors[line_no])
+			
 			line_no+=1
 
 	plt.xlabel('Horizon')
 	plt.ylabel('Regret')
 	plt.title(instance)
 	plt.legend(loc = 'upper left')
+	
 	plt.savefig('instance'+str(plot_no)+'.png')
 	plt.show()
 
 	plot_no+=1
-
-
-
-
-
-
-
-
 
