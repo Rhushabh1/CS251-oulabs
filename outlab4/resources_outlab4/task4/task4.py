@@ -1,17 +1,17 @@
 import numpy as np
 import math
 
+def mean_filter(arr, k):
+	kernel_size = 2*k+1
 
-pointer = 0
-new = np.array([])
-def mean_filter(arr, ker):
-    if pointer == np.size(arr) :
-        return new
-    else :
+	m = arr.copy()
+	m.astype(float)
+	I = np.ones(kernel_size)
 
+	acc = np.convolve(m,I,"full")
+	acc = acc[k:-k]
 
-
-
+	return acc/kernel_size
 
 def noisify(arr,var):
     sd = math.sqrt(var)
