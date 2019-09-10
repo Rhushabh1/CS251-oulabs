@@ -1,6 +1,6 @@
 import argparse 
 from scipy.cluster.vq import kmeans2
-from scipy import misc
+from scipy import misc,ndimage
 import numpy as np 
 import pickle
  
@@ -22,9 +22,9 @@ img = img.reshape(r*c, h)
 centroids, label = kmeans2(img, k, minit='++')
 
 ########################## save data in a pickle
-with open('kmeans.pickle','wb') as fin:
-	pickle.dump(centroids, fin)
-	pickle.dump(label, fin)
+# with open('kmeans.pickle','wb') as fin:
+# 	pickle.dump(centroids, fin)
+# 	pickle.dump(label, fin)
 
 ########################## load saved pickle
 # pickle_in = open("kmeans.pickle",'rb')
@@ -36,6 +36,7 @@ for i in range(len(label)):
 	img[i] = centroids[label[i]]
 
 img = img.reshape(r,c,h)
+img = ndimage.rotate(img, 90)
 
 misc.imsave(output_file,img)
 
