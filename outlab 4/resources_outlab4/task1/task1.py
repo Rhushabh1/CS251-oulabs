@@ -2,9 +2,10 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
+from scipy.misc import derivative
 
 def fn_plot1d(fn, x_min, x_max, filename):
-    x_values = np.linspace(x_min,x_max,num=1000)
+    x_values = np.arange(x_min,x_max,0.01)
     fn_vec = np.vectorize(fn)
     y_values = fn_vec(x_values)
 
@@ -15,9 +16,15 @@ def fn_plot1d(fn, x_min, x_max, filename):
 
 
 def nth_derivative_plotter(fn, n, x_min, x_max, filename):
-    x_values = np.linspace(x_min,x_max,num=1000)
+    x_values = np.arange(x_min,x_max,0.01)
+
     fn_vec = np.vectorize(fn)
-    y = fn_vec(x_values)
+    y_values = derivative(fn_vec,x_values,dx=0.1,n=n,order=11)
+
+    plt.figure()
+    plt.plot(x_values,y_values)
+    # plt.savefig(filename)
+    plt.show()
 
 
 
@@ -78,3 +85,8 @@ pi = math.pi
 
 fn_plot1d(b,-2,2,'fn1plot.png')
 fn_plot2d(twodsinc,-1.5*pi, 1.5*pi,-1.5*pi , 1.5*pi,'fn2plot.png')
+
+for i in range(1,11):
+    txt = 'bd_' + str(i) + '.png'
+    nth_derivative_plotter(b,i,-2,2,txt)
+
