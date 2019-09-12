@@ -2,16 +2,19 @@ import numpy as np
 import math
 
 def mean_filter(arr, k):
-	kernel_size = 2*k+1
+    kernel = 2*k + 1
+    l = len(arr)
+    m = arr.copy()
+    a = np.arange(kernel).reshape(1,kernel)
+    b = np.arange(l).reshape(l,1)
+    c = a + b
+    z = np.zeros(k)
+    fin = np.append(z,m)
+    fin = np.append(fin,z)
+    val = np.mean(fin[c],axis=1)
+    return val
 
-	m = arr.copy()
-	m.astype(float)
-	I = np.ones(kernel_size)
 
-	acc = np.convolve(m,I,"full")
-	acc = acc[k:-k]
-
-	return acc/kernel_size
 
 def noisify(arr,var):
     sd = math.sqrt(var)
