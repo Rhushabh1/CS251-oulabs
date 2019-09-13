@@ -1,4 +1,4 @@
-# CS251-SSL-oulabs
+# Code_Warriors-SSL-oulabs
 
 This includes programs on 
 1) Bash
