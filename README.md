@@ -1,4 +1,4 @@
-# Code_Warriors-SSL-oulabs
+# Code_Warriors-SSL-outlabs
 
 This includes programs on 
 1) Bash
