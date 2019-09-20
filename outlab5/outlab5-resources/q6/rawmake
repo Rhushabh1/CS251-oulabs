@@ -1,0 +1,12 @@
+helloworld: helloworld.cpp
+	g++ helloworld.cpp -o helloworld
+
+usepthread: usepthread.cpp
+	g++ usepthread.cpp -o usepthread -pthread -std=c++11
+
+libMyEngineDynamic.so: myengine/myengine.hpp myengine/myengine.cpp
+	g++ -c myengine/myengine.hpp -o  libMyEngineDynamic.o -
+
+libMyEngineStatic.a: myengine.hpp myengine.cpp
+
+

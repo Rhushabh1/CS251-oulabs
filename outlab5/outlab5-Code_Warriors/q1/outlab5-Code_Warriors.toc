@@ -1,0 +1,12 @@
+\contentsline {section}{\numberline {1}Introduction (4 marks)}{2}
+\contentsline {subsection}{\numberline {1.1}graphicx package}{2}
+\contentsline {subsection}{\numberline {1.2}amssymb package}{2}
+\contentsline {section}{\numberline {2}Pointers (3 + 2 + 1 marks)}{3}
+\contentsline {section}{\numberline {3}Mathematical formulae and notations (15 marks)}{4}
+\contentsline {subsection}{\numberline {3.1}Equation Array (4 marks)}{4}
+\contentsline {subsection}{\numberline {3.2}Prepositional Formulae using Various Operators (2 marks)}{4}
+\contentsline {subsection}{\numberline {3.3}Alphabets (3 marks + 1 mark for table)}{4}
+\contentsline {subsection}{\numberline {3.4}Mathematical Formulas (5 marks) }{4}
+\contentsline {section}{\numberline {4}Tables (10 marks) }{5}
+\contentsline {subsection}{\numberline {4.1}Stage 2}{6}
+\contentsline {section}{\numberline {5}Results}{6}

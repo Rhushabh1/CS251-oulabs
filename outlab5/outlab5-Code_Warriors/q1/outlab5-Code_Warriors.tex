@@ -1,0 +1,226 @@
+\documentclass[a4paper, 10pt, fullpage]{article}
+\usepackage{color}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{enumitem}
+\usepackage{bigints}
+\usepackage{relsize}
+\usepackage{amsmath}
+\usepackage{multirow}
+\usepackage{fixltx2e}
+
+\begin{document}
+
+\begin{titlepage}
+   \begin{center}
+       \vspace*{4cm}
+ 
+       \huge \textbf{ Software Systems Lab: OutLab 5}
+ 
+       \vspace{0.5cm}
+        \huge \textbf{\LaTeX (80 marks)}
+ 
+       \vspace{1.5cm}
+ 
+       \large \texttt{Code Warriors}
+ 
+       \vspace{1cm}
+      \large 180050013
+     
+      \large 180050085
+
+      \large 180050097 
+      \date{\today}
+      
+   \end{center}
+\end{titlepage}
+
+\newpage
+
+\tableofcontents
+\pagenumbering{arabic}
+\newpage
+
+This is a \LaTeX document for the course \textbf{Software Systems Lab} with course code \textsl{CS 251}. You need to replicate the document. Spacing need not be matched perfectly but page numbers should be. \textbf{1 mark is for the title page.}. Bonus marks will be given only if you score full (80/80) in the rest.
+\section{Introduction (4 marks)}
+\textbf{\LaTeX} is a word processor and document markup language. It is distinguished
+from typical word processors such as Microsoft Word and Apple Pages in that
+the writer uses plain text as opposed to formatted text, relying on markup
+tagging conventions to define the general structure of a document (such as
+article, book, and letter), to stylise text throughout a document (such as \textbf{bold}
+and \textit{italic}), and to add citations and cross-referencing. A \textbf{\TeX} distribution such
+as \textbf{\TeX  Live} or \textbf{MikTeX} is used to produce an output file (such as PDF or DVI)
+suitable for printing or digital distribution.
+\bigbreak
+\textbf{\LaTeX} is used for the communication and publication of scientific documents
+in many fields, including mathematics, physics, computer science, statistics,
+economics, and political science. It also has a prominent role in the preparation
+and publication of books and articles that contain complex multilingual materi-
+als, such as Sanskrit and Arabic. \textbf{\LaTeX} uses the TeX typesetting program for
+formatting its output, and is itself written in the TeX macro language.
+\bigbreak
+\textbf{\LaTeX} is widely used in academia. \textbf{\LaTeX} can be used as a standalone docu-
+ment preparation system, or as an intermediate format. In the latter role, for
+example, it is often used as part of a pipeline for translating DocBook and other
+XML-based formats to PDF. The typesetting system offers programmable desk-
+top publishing features and extensive facilities for automating most aspects of
+typesetting and desktop publishing, including numbering and cross-referencing
+of tables and figures, chapter and section headings, the inclusion of graphics,
+page layout, indexing and bibliographies.
+\bigbreak
+Below are some of the basic packages which you’ll be using. For other
+required packages, search over the net :).
+
+\subsection{graphicx package}
+This package is used to import tables, and figure in the document. Our
+document type is article, and we are currently using a4 type paper with the
+following margin geometry: (total={6in, 8in}, margin=1.2in, bottom=1in),
+which is specified in the beginning.
+
+\subsection{amssymb package}
+This package is used to import mathematical symbols in the document. We encapsulate the mathematical equations and symbols under \$, and they are changed to maths symbols.
+
+\section{Pointers (3 + 2 + 1 marks)}
+Here we are using \textbf{itemize} to generate unordered list.
+\begin{itemize}
+\setlength\itemsep{2em}
+	\item \LaTeX typesets a file of text using the TEX program.
+	\item \LaTeX is widely used in academia for the communication and publication of scientific documents in many fields, including mathematics, physics, computer science, statistics, economics and political science.
+	\item \LaTeX can be used as a standalone document preparation system or as an intermediate format.
+	\item \textbf{We have used renewcommand for the bullets to be bigger.}
+	\item Look at the \textbf{item separation space}, and \textbf{change it} accordingly.
+\end{itemize}
+For ordered lists we use \textbf{enumerate}.
+
+\begin{enumerate}[label=\Roman*.]
+\setlength\itemsep{1em}
+	\item \LaTeX typesets a file of text using the TEX program.
+	\item \LaTeX is widely used in academia for the communication and publication of scientific documents in many fields, including mathematics, physics, computer science, statistics, economics and political science.
+	\item \LaTeX can be used as a standalone document preparation system or as an intermediate format.
+	\item \LaTeX is intended to provide a high-level language that accesses the power of TeX in an easier way for writers.
+\end{enumerate}
+\begin{enumerate}[label=(\alph*)]
+	\item \LaTeX typesets a file of text using the TEX program.
+	\item \LaTeX is widely used in academia for the communication and publication of scientific documents in many fields, including mathematics, physics, computer science, statistics, economics and political science.
+\end{enumerate}
+
+Following is another type of a pointer (\textbf{description}).
+
+\begin{description}
+	\item[\textbf{CS 213}] Data structures and Algorithm
+	\item[\textbf{CS 215}] Data Analysis and Interpretation
+	\item[\textbf{CS 251}] Software Systems Lab
+\end{description}
+
+\section{Mathematical formulae and notations (15 marks)}
+\subsection{Equation Array (4 marks)}
+\begin{eqnarray}
+	\cos^3{\theta} + \sin^3{\theta} & = & (\cos{\theta} + \sin{\theta})(\cos{2\theta} - \cos{\theta}\sin{\theta})\\
+	& = & (\cos{\theta} + \sin{\theta})(1 - \cos{\theta}\sin{\theta})\\
+	& = & (\cos{\theta} + \sin{\theta})(1/2)(2 - 2\cos{\theta}\sin{\theta})(3)\\
+	& = & (1/2)(\cos{\theta} + \sin{\theta})(2 - \sin(2\theta))
+\end{eqnarray}
+
+\subsection{Prepositional Formulae using Various Operators (2 marks)}
+
+$ (\exists x)(\phi(x) \wedge \psi(x)) \leftrightarrow ((\exists x)\phi(x) \wedge (\exists x)\psi(x)) $
+\\ \\
+$ (\exists x)(\phi(x) \wedge \psi(x)) \to ((\exists x)\phi(x) \wedge (\exists x)\phi(x) \wedge (\exists x)\psi(x)) $
+
+\subsection{Alphabets (3 marks + 1 mark for table)}
+\vspace{0.5cm}
+\begin{center}
+\renewcommand{\arraystretch}{1.7}
+\begin{tabular}{|c|c|}
+\hline
+
+	Binary Operators: & $ \times \otimes \oplus \cup \cap $  \\
+	\hline
+
+	Relation Operators: & $ \subset \supset \subseteq \supseteq < >$ 	\rule{0pt}{4ex} \\
+	\hline
+	Others: & $ \int \oint \sum \prod $ 	\rule{0pt}{4ex} \\
+	\hline
+\end{tabular}
+\end{center}
+
+\subsection{Mathematical Formulas (5 marks) }
+\begin{enumerate}
+	\item $\mathlarger{ \int_{a}^{b} x^3 dx = \frac{1}{4}x^4\bigg|_{a}^b }$
+	\item $\mathlarger{ \frac{\pi}{4} = 4\sum_{n=0}^{\infty}\frac{(-1)^n}{(2n+1)5^{2n+1} } - \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)239^{2n+1}} }$ 
+	\item $\mathlarger{ \pi =\frac{3\sqrt{3}}{4} - 24\sum_{n=0}^{\infty} \frac{\frac{(2n)!}{(n)}}{2n+1(2n+1)4^{2n+1} }}$
+	\item $\mathlarger{\frac{1}{\pi} = \frac{2\sqrt{2}}{9801} \sum_{n=0}^{\infty} \frac{(4n)!(1103+26390n)}{(n)!^4396^{4n}}}$
+	\item $\mathlarger{ \sum_{i=0}^{\left[\frac{n}{2}\right[} {{x_{i,i+1}^{i^2}}\choose{\left[\frac{i+3}{3}\right[}} \frac{\sqrt{\mu (i)^{\frac{3}{2}} (i^2-1)}}{\sqrt[3]{\rho(i)-2} + \sqrt[3]{\rho(i) -1}} }$
+\end{enumerate}
+
+\newpage
+\section{Tables (10 marks) }
+To combine rows a package must be imported with in your preamble, then you
+can use the XXXXXXX command in your document. The table below includes
+mathematical notations, which you can produce by embedding the expression
+in \$ \$ delimiters. For subscript, use underscore and for superscript, use carrot.
+
+\renewcommand{\arraystretch}{1}
+\begin{center}
+\begin{tabular}{|cc|c|c|c|c|c|c|c|c|c|c|}
+	\cline{4-12}
+	& & & \multicolumn{5}{c}{\textbf{Basic Properties}} & \multicolumn{4}{c}{\textbf{Readability}} \\
+	\cline{4-12}
+	& & & \textbf{WC} & \textbf{SC} & \textbf{C-W} & \textbf{S-W} & \textbf{W-S} & \textbf{FK} & \textbf{GF} & \textbf{SMOG} & \textbf{LEX} \\
+	\hline
+	\multicolumn{2}{c}{\multirow{2}{*}{\textit{Baseline}}} & Mean & 0.84 & 0.41 & \textbf{0.56} & \textbf{0.46} & \textbf{0.55} & \textbf{0.60} & 0.56 & 0.57 & 0.63 \\
+	\cline{3-12}
+	\multicolumn{2}{c}{} & SD & 0.07 & 0.08 & 0.06 & 0.07 & 0.05 & 0.05 & 0.06 & 0.07 & 0.05 \\
+	\hline
+	\hline
+	\multicolumn{2}{c}{\multirow{2}{*}{\textit{ScaComph}}} & Mean & 0.89 & 0.46 & 0.53 & 0.43 & 0.53 & 0.58 & 0.54 & 0.56 & 0.62 \\
+	\cline{3-12}
+	\multicolumn{2}{c}{} & SD & 0.05 & 0.08 & 0.05 & 0.06 & 0.06 & 0.05 & 0.05 & 0.06 & 0.05 \\
+	\hline
+	\hline
+	\multicolumn{2}{c}{\multirow{2}{*}{\textit{ScaComph}}} & Mean & \textbf{0.92} & \textbf{0.48} & 0.55 & 0.45 & 0.53 & 0.59 & \textbf{0.58} & \textbf{0.61} & \textbf{0.64} \\
+	\cline{3-12}
+	\multicolumn{2}{c}{} & SD & 0.04 & 0.07 & 0.05 & 0.04 & 0.05 & 0.04 & 0.04 & 0.04 & 0.04 \\
+	\hline
+	
+		
+\end{tabular}
+\end{center}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\label{sec1}
+\break
+The first {\color{red}part} of \textbf{the} methods.
+\begin{enumerate}
+\item First thing 
+\item Second thing 
+\begin{itemize}
+\item A sub-thing
+\item Another sub-thing 
+\end{itemize}
+\item Third thing
+\end{enumerate}
+
+\subsection{Stage 2}
+The \underline{second} part of the {\tiny methods}.
+Item \#1A\textbackslash 642 costs \$8 \& is sold at a  ̃10\% profit.
+
+\section{Results}
+Here are my {\huge results}.Referring to section \ref{sec1} on page 
+\pageref{sec1}
+
+\begin{tabular}{l|r|r}
+Item & Quantity & Price (\&) \\
+\hline
+Nails & 500 & 0.34 \\
+Wooden boards & 100 & 4.00 \\
+
+\end{tabular}
+
+\newpage
+\begin{figure}[t]
+\includegraphics[scale=0.1]{1.jpg}
+\caption{my image}
+\end{figure}
+
+\end{document}
