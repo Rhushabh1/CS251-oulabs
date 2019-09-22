@@ -1,0 +1,141 @@
+\documentclass[]{article}
+\usepackage{listings}
+\usepackage{csquotes}
+\usepackage{xcolor}
+\usepackage[linesnumbered,algoruled,boxed,commentsnumbered]{algorithm2e}
+\begin{document}
+
+\section{Quotation an Citation (4 marks)}
+\subsection{Quotation (2 marks)}
+The margins of the quotation environment are indented on both the left and the
+right. The text is justified at both margins. Leaving a blank line between text
+produces a new paragraph. The package \textbf{csquotes} offers a multilingual solu-
+tion to quotations, with integration to citation mechanisms offered by BibTeX.
+This package allows one for example to switch languages and quotation styles
+according to babel language selections.
+
+\begin{quote}
+"Unlike the quote environment, each paragraph is indented nor- mally.
+It’s important to remark that even if you are typing quotes on English
+there are different quotation marks used in English (UK) and English
+(US)."
+\end{quote}
+
+\subsection{Citation (2 marks)}
+Latex [1] is a document preparation system for typesetting program. It is used
+to create different types of document structures. A Latex file (.tex) is created
+using any text editor (vim, emacs, gedit, etc.). There are also many LaTeX
+IDEs like Kile, TexStudio, etc.. The Latex code is then compiled which creates
+a standard (.pdf) file. Thus, the presentation of the document does not change
+on different machines.
+\\
+Type style[2] is used to indicate logical structure. Emphasized text appears in
+italic style type and input in typewriter style. Type style is specified by three
+components: shape, series, and family.\\
+
+There are two ways of producing a bibliography[3]. You can either produce
+a bibliography by manually listing the entries of the bibliography or producing
+it automatically using the BibTeX program of LaTeX. The bibliography style can
+be declared with bibliographystyle command, which may be issued anywhere
+after the preamble. The style is a file with .bst extension that determines how
+bibliography entries will appear at the output, such as if they are sorted or not,
+or how they are labeled etc. The extension .bib is not written explicitly. There
+are many standard bibliography style files. Two of them that are compatible
+with IIT thesis manual are plain.bst and alpha.bst. They are part of the LaTeX
+package; a student does not need to download it. The plain.bst and alpha.bst
+styles are explained below. The symbols in a math formula fall into different
+classes that correspond more or less to the part of speech each symbol would
+have if the formula were ex pressed in words. Certain spacing and position-
+ing cues are traditionally used for the different symbol classes to increase the
+readability of formulas. [4]
+
+My citations are in proper order as per references ref1, ref2, ref3, and ref4.
+
+\section{Algorithm and Pseudo Code (22 marks)}
+\subsection{Listing (10 marks)}
+\rule{\textwidth}{0.1pt}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{1,1,1}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{blue},
+    numberstyle=\tiny\color{backcolour},
+    stringstyle=\color{codepurple},
+    basicstyle=\large,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
+
+\begin{lstlisting}[language=C++]
+//Breadth First Search Function
+void BFS(list<long long int> queue,long long int length
+	){
+	long long int v ;
+	if (queue.empty())
+		return ;
+	list<long long int>::iterator i;
+	list<long long int> queue_temp;
+	while(!queue.empty()){
+		v=queue.front() ;
+		queue.pop_front();
+		for(i=adj[v].begin();i!=adj[v].end();i++){
+			if(!pro_ver[*i]){
+				result[*i]=length;
+				queue_temp.push_back(*i);
+				pro_ver[*i]=true;
+				adj[*i].remove(v);
+				}
+			}
+		}
+	BFS(queue_temp , length+1);
+}
+\end{lstlisting}
+\newpage
+\subsection{Algorithmic (12 marks)}
+\RestyleAlgo{boxruled}
+\begin{algorithm}[H]
+\caption{How to write algorithms}
+\SetAlgoLined
+\SetKwInput{KwData}{Input}
+\KwData{A graph Graph and a starting vertex root of Graph}
+\SetKwInput{KwResult}{Output}
+\KwResult{All vertices’s reachable from root labeled as explored.}
+Breadth-First-Search(Graph, root):
+
+\For{each node n in Graph  :}{
+$n$.\textbf{distance} = INFINITY
+
+$n$.\textbf{parent} = NIL
+}
+create empty \textbf{queue} Q
+
+root.\textbf{distance} = 0
+
+Q.\textbf{enqueue}(root)
+
+\While{Q is not empty :}{
+current = Q.dequeue()
+
+\For{each node n that is adj acent to current}{
+\If{n.\textbf{distance} == INFINITY}{
+n.\textbf{distance} = current.\textbf{distance} + 1 n.\textbf{parent} = current
+
+Q.\textbf{enqueue}(n)
+}
+}
+}
+\end{algorithm}
+\end{document}
